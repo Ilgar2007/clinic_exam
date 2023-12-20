@@ -1,0 +1,2323 @@
+basePath: /api/v1
+definitions:
+  handler.Response:
+    properties:
+      data: {}
+      description:
+        type: string
+      status:
+        type: integer
+    type: object
+  models.Branch:
+    properties:
+      address:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      phone_number:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.Client:
+    properties:
+      birthday:
+        type: string
+      branch_id:
+        type: string
+      created_at:
+        type: string
+      first_name:
+        type: string
+      gender:
+        type: string
+      id:
+        type: string
+      is_active:
+        type: boolean
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.ComingTable:
+    properties:
+      branch_id:
+        type: string
+      created_at:
+        type: string
+      dated:
+        type: string
+      id:
+        type: string
+      increment_id:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.CreateBranch:
+    properties:
+      address:
+        type: string
+      name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.CreateClient:
+    properties:
+      birthday:
+        type: string
+      branch_id:
+        type: string
+      first_name:
+        type: string
+      gender:
+        type: string
+      is_active:
+        type: boolean
+      last_name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.CreateComingTable:
+    properties:
+      branch_id:
+        type: string
+      dated:
+        type: string
+    type: object
+  models.CreatePickingSheet:
+    properties:
+      coming_id:
+        type: string
+      price:
+        type: number
+      product_id:
+        type: string
+      quantity:
+        type: integer
+      total:
+        type: number
+    type: object
+  models.CreateProduct:
+    properties:
+      branch_id:
+        type: string
+      name:
+        type: string
+      selling_price:
+        type: number
+    type: object
+  models.CreateRemainder:
+    properties:
+      arrival_price:
+        type: number
+      branch_id:
+        type: string
+      name:
+        type: string
+      quantity:
+        type: integer
+      selling_price:
+        type: number
+    type: object
+  models.CreateSale:
+    properties:
+      branch_id:
+        type: string
+      client_id:
+        type: string
+      debt:
+        type: number
+      paid:
+        type: number
+      total:
+        type: number
+    type: object
+  models.CreateSaleProduct:
+    properties:
+      price:
+        type: number
+      product_id:
+        type: string
+      quantity:
+        type: integer
+      sale_id:
+        type: string
+      total:
+        type: number
+    type: object
+  models.GetListBranchResponse:
+    properties:
+      branches:
+        items:
+          $ref: '#/definitions/models.Branch'
+        type: array
+      count:
+        type: integer
+    type: object
+  models.GetListClientResponse:
+    properties:
+      clients:
+        items:
+          $ref: '#/definitions/models.Client'
+        type: array
+      count:
+        type: integer
+    type: object
+  models.GetListComingTableResponse:
+    properties:
+      coming_tables:
+        items:
+          $ref: '#/definitions/models.ComingTable'
+        type: array
+      count:
+        type: integer
+    type: object
+  models.GetListPickingSheetResponse:
+    properties:
+      count:
+        type: integer
+      picking_sheets:
+        items:
+          $ref: '#/definitions/models.PickingSheet'
+        type: array
+    type: object
+  models.GetListProductResponse:
+    properties:
+      count:
+        type: integer
+      products:
+        items:
+          $ref: '#/definitions/models.Product'
+        type: array
+    type: object
+  models.GetListRemainderResponse:
+    properties:
+      count:
+        type: integer
+      remainders:
+        items:
+          $ref: '#/definitions/models.Remainder'
+        type: array
+    type: object
+  models.GetListSaleProductResponse:
+    properties:
+      count:
+        type: integer
+      saleproducts:
+        items:
+          $ref: '#/definitions/models.SaleProduct'
+        type: array
+    type: object
+  models.GetListSaleResponse:
+    properties:
+      count:
+        type: integer
+      sales:
+        items:
+          $ref: '#/definitions/models.Sale'
+        type: array
+    type: object
+  models.PickingSheet:
+    properties:
+      coming_id:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      increment_id:
+        type: string
+      price:
+        type: number
+      product_id:
+        type: string
+      quantity:
+        type: integer
+      total:
+        type: number
+      updated_at:
+        type: string
+    type: object
+  models.Product:
+    properties:
+      branch_id:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      selling_price:
+        type: number
+      updated_at:
+        type: string
+    type: object
+  models.Remainder:
+    properties:
+      arrival_price:
+        type: number
+      branch_id:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      quantity:
+        type: integer
+      selling_price:
+        type: number
+      updated_at:
+        type: string
+    type: object
+  models.Sale:
+    properties:
+      branch_id:
+        type: string
+      client_id:
+        type: string
+      created_at:
+        type: string
+      debt:
+        type: number
+      id:
+        type: string
+      increment_id:
+        type: string
+      paid:
+        type: number
+      total:
+        type: number
+      updated_at:
+        type: string
+    type: object
+  models.SaleProduct:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: string
+      increment_id:
+        type: string
+      price:
+        type: number
+      product_id:
+        type: string
+      quantity:
+        type: integer
+      sale_id:
+        type: string
+      total:
+        type: number
+      updated_at:
+        type: string
+    type: object
+  models.UpdateBranch:
+    properties:
+      address:
+        type: string
+      name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.UpdateClient:
+    properties:
+      birthday:
+        type: string
+      branch_id:
+        type: string
+      first_name:
+        type: string
+      gender:
+        type: string
+      is_active:
+        type: boolean
+      last_name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.UpdateComingTable:
+    properties:
+      branch_id:
+        type: string
+      dated:
+        type: string
+    type: object
+  models.UpdatePickingSheet:
+    properties:
+      coming_id:
+        type: string
+      price:
+        type: number
+      product_id:
+        type: string
+      quantity:
+        type: integer
+      total:
+        type: number
+    type: object
+  models.UpdateProduct:
+    properties:
+      branch_id:
+        type: string
+      name:
+        type: string
+      selling_price:
+        type: number
+    type: object
+  models.UpdateRemainder:
+    properties:
+      arrival_price:
+        type: number
+      branch_id:
+        type: string
+      name:
+        type: string
+      quantity:
+        type: integer
+      selling_price:
+        type: number
+    type: object
+  models.UpdateSale:
+    properties:
+      branch_id:
+        type: string
+      client_id:
+        type: string
+      debt:
+        type: number
+      paid:
+        type: number
+      total:
+        type: number
+    type: object
+  models.UpdateSaleProduct:
+    properties:
+      price:
+        type: number
+      product_id:
+        type: string
+      quantity:
+        type: integer
+      sale_id:
+        type: string
+      total:
+        type: number
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  title: MARKET SYSTEM API
+  version: "1.0"
+paths:
+  /branch:
+    get:
+      consumes:
+      - application/json
+      description: GetList Branch
+      operationId: GetList_branch
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: number
+      - description: offset
+        in: query
+        name: offset
+        type: number
+      - description: name
+        in: query
+        name: name
+        type: string
+      - description: phone_number
+        in: query
+        name: phone_number
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: BranchBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.GetListBranchResponse'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetList Branch
+      tags:
+      - Branch
+    post:
+      consumes:
+      - application/json
+      description: Create Branch
+      operationId: create_branch
+      parameters:
+      - description: CreateBranchRequestBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateBranch'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: BranchBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Branch'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Branch
+      tags:
+      - Branch
+  /branch/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Branch
+      operationId: delete_baranch
+      parameters:
+      - description: DeleteBranchPath
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deleted Branch
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete Branch
+      tags:
+      - Branch
+    get:
+      consumes:
+      - application/json
+      description: GetById Branch
+      operationId: get_by_id_branch
+      parameters:
+      - description: GetByIdBranchRequestBody
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: BranchBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Branch'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetById Branch
+      tags:
+      - Branch
+    put:
+      consumes:
+      - application/json
+      description: Update Branch
+      operationId: update_baranch
+      parameters:
+      - description: BranchPrimaryKey_ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateBranchBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateBranch'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated Branch
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Branch'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update Branch
+      tags:
+      - Branch
+  /coming:
+    get:
+      consumes:
+      - application/json
+      description: GetList ComingTable
+      operationId: GetList_coming_table
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: number
+      - description: offset
+        in: query
+        name: offset
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ComingTableBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.GetListComingTableResponse'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetList ComingTable
+      tags:
+      - ComingTable
+    post:
+      consumes:
+      - application/json
+      description: Create ComingTable
+      operationId: create_coming_table
+      parameters:
+      - description: CreateComingTableRequestBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateComingTable'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: ComingTableBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ComingTable'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create ComingTable
+      tags:
+      - ComingTable
+  /coming/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete ComingTable
+      operationId: delete_baranch
+      parameters:
+      - description: DeleteComingTablePath
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deleted ComingTable
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete ComingTable
+      tags:
+      - ComingTable
+    get:
+      consumes:
+      - application/json
+      description: GetById ComingTable
+      operationId: get_by_id_coming_table
+      parameters:
+      - description: GetByIdComingTableRequestBody
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ComingTableBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ComingTable'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetById ComingTable
+      tags:
+      - ComingTable
+    put:
+      consumes:
+      - application/json
+      description: Update ComingTable
+      operationId: update_baranch
+      parameters:
+      - description: ComingTablePrimaryKey_ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateComingTableBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateComingTable'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated ComingTable
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ComingTable'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update ComingTable
+      tags:
+      - ComingTable
+  /picking_sheet:
+    get:
+      consumes:
+      - application/json
+      description: GetList PickingSheet
+      operationId: GetList_picking_sheet
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: number
+      - description: offset
+        in: query
+        name: offset
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: PickingSheetBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.GetListPickingSheetResponse'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetList PickingSheet
+      tags:
+      - PickingSheet
+    post:
+      consumes:
+      - application/json
+      description: Create PickingSheet
+      operationId: create_picking_sheet
+      parameters:
+      - description: CreatePickingSheetRequestBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreatePickingSheet'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: PickingSheetBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.PickingSheet'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create PickingSheet
+      tags:
+      - PickingSheet
+  /picking_sheet/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete PickingSheet
+      operationId: delete_picking_sheet
+      parameters:
+      - description: DeletePickingSheetPath
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deleted PickingSheet
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete PickingSheet
+      tags:
+      - PickingSheet
+    get:
+      consumes:
+      - application/json
+      description: GetById PickingSheet
+      operationId: get_by_id_picking_sheet
+      parameters:
+      - description: GetByIdPickingSheetRequestBody
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: PickingSheetBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.PickingSheet'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetById PickingSheet
+      tags:
+      - PickingSheet
+    put:
+      consumes:
+      - application/json
+      description: Update PickingSheet
+      operationId: update_picking_sheet
+      parameters:
+      - description: PickingSheetPrimaryKey_ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdatePickingSheetBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdatePickingSheet'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated PickingSheet
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.PickingSheet'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update PickingSheet
+      tags:
+      - PickingSheet
+  /product:
+    get:
+      consumes:
+      - application/json
+      description: GetList Product
+      operationId: get_list_product
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: number
+      - description: offset
+        in: query
+        name: offset
+        type: number
+      - description: name
+        in: query
+        name: name
+        type: string
+      - description: branch_id
+        in: query
+        name: branch_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ProductBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.GetListProductResponse'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetList Product
+      tags:
+      - Product
+    post:
+      consumes:
+      - application/json
+      description: Create Product
+      operationId: create_product
+      parameters:
+      - description: CreateProductRequestBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateProduct'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: ProductBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Product'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Product
+      tags:
+      - Product
+  /product/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Product
+      operationId: delete_product
+      parameters:
+      - description: DeleteProductPath
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deleted Product
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete Product
+      tags:
+      - Product
+    get:
+      consumes:
+      - application/json
+      description: GetById Product
+      operationId: get_by_id_product
+      parameters:
+      - description: GetByIdProductRequestBody
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ProductBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Product'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetById Product
+      tags:
+      - Product
+    put:
+      consumes:
+      - application/json
+      description: Update Product
+      operationId: update_product
+      parameters:
+      - description: ProductPrimaryKey_ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateProductBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateProduct'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated Product
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Client'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update Product
+      tags:
+      - Product
+  /remainder:
+    get:
+      consumes:
+      - application/json
+      description: GetList Remainder
+      operationId: get_list_remainder
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: number
+      - description: offset
+        in: query
+        name: offset
+        type: number
+      - description: name
+        in: query
+        name: name
+        type: string
+      - description: branch_id
+        in: query
+        name: branch_id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: RemainderBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.GetListRemainderResponse'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetList Remainder
+      tags:
+      - Remainder
+    post:
+      consumes:
+      - application/json
+      description: Create Remainder
+      operationId: create_remainder
+      parameters:
+      - description: CreateRemainderRequestBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateRemainder'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: RemainderBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Remainder'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Remainder
+      tags:
+      - Remainder
+  /remainder/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Remainder
+      operationId: delete_remainder
+      parameters:
+      - description: DeleteRemainderPath
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deleted Remainder
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete Remainder
+      tags:
+      - Remainder
+    get:
+      consumes:
+      - application/json
+      description: GetById Remainder
+      operationId: get_by_id_remainder
+      parameters:
+      - description: GetByIdRemainderRequestBody
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: RemainderBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Remainder'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetById Remainder
+      tags:
+      - Remainder
+    put:
+      consumes:
+      - application/json
+      description: Update Remainder
+      operationId: update_remainder
+      parameters:
+      - description: RemainderPrimaryKey_ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateRemainderBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateRemainder'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated Remainder
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Client'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update Remainder
+      tags:
+      - Remainder
+  /sale:
+    get:
+      consumes:
+      - application/json
+      description: GetList Sale
+      operationId: GetList_sale
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: number
+      - description: offset
+        in: query
+        name: offset
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: SaleBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.GetListSaleResponse'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetList Sale
+      tags:
+      - Sale
+    post:
+      consumes:
+      - application/json
+      description: Create Sale
+      operationId: create_sale
+      parameters:
+      - description: CreateSaleRequestBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateSale'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: SaleBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Sale'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Sale
+      tags:
+      - Sale
+  /sale/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Sale
+      operationId: delete_baranch
+      parameters:
+      - description: DeleteSalePath
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deleted Sale
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete Sale
+      tags:
+      - Sale
+    get:
+      consumes:
+      - application/json
+      description: GetById Sale
+      operationId: get_by_id_sale
+      parameters:
+      - description: GetByIdSaleRequestBody
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: SaleBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Sale'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetById Sale
+      tags:
+      - Sale
+    put:
+      consumes:
+      - application/json
+      description: Update Sale
+      operationId: update_baranch
+      parameters:
+      - description: SalePrimaryKey_ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateSaleBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateSale'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated Sale
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Sale'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update Sale
+      tags:
+      - Sale
+  /sale_product:
+    get:
+      consumes:
+      - application/json
+      description: GetList SaleProduct
+      operationId: GetList_sale_product
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: number
+      - description: offset
+        in: query
+        name: offset
+        type: number
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: SaleProductBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.GetListSaleProductResponse'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetList SaleProduct
+      tags:
+      - SaleProduct
+    post:
+      consumes:
+      - application/json
+      description: Create SaleProduct
+      operationId: create_sale_product
+      parameters:
+      - description: CreateSaleProductRequestBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateSaleProduct'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: SaleProductBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.SaleProduct'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create SaleProduct
+      tags:
+      - SaleProduct
+  /sale_product/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete SaleProduct
+      operationId: delete_baranch
+      parameters:
+      - description: DeleteSaleProductPath
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deleted SaleProduct
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete SaleProduct
+      tags:
+      - SaleProduct
+    get:
+      consumes:
+      - application/json
+      description: GetById SaleProduct
+      operationId: get_by_id_sale_product
+      parameters:
+      - description: GetByIdSaleProductRequestBody
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: SaleProductBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.SaleProduct'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetById SaleProduct
+      tags:
+      - SaleProduct
+    put:
+      consumes:
+      - application/json
+      description: Update SaleProduct
+      operationId: update_baranch
+      parameters:
+      - description: SaleProductPrimaryKey_ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateSaleProductBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateSaleProduct'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated SaleProduct
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.SaleProduct'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update SaleProduct
+      tags:
+      - SaleProduct
+  /user:
+    get:
+      consumes:
+      - application/json
+      description: GetList User
+      operationId: get_list_client
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        type: number
+      - description: offset
+        in: query
+        name: offset
+        type: number
+      - description: first_name
+        in: query
+        name: first_name
+        type: string
+      - description: last_name
+        in: query
+        name: last_name
+        type: string
+      - description: branch_id
+        in: query
+        name: branch_id
+        type: string
+      - description: phone_number
+        in: query
+        name: phone_number
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: UserBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.GetListClientResponse'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetList User
+      tags:
+      - User
+    post:
+      consumes:
+      - application/json
+      description: Create User
+      operationId: create_client
+      parameters:
+      - description: CreateUserRequestBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateClient'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: UserBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Client'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create User
+      tags:
+      - User
+  /user/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete User
+      operationId: delete_client
+      parameters:
+      - description: DeleteUserPath
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Deleted User
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Delete User
+      tags:
+      - User
+    get:
+      consumes:
+      - application/json
+      description: GetById User
+      operationId: get_by_id_client
+      parameters:
+      - description: GetByIdUserRequestBody
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: UserBody
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Client'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GetById User
+      tags:
+      - User
+    put:
+      consumes:
+      - application/json
+      description: Update User
+      operationId: update_client
+      parameters:
+      - description: UserPrimaryKey_ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: UpdateUserBody
+        in: body
+        name: object
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateClient'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Updated User
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Client'
+              type: object
+        "400":
+          description: Invalid Argument
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Update User
+      tags:
+      - User
+swagger: "2.0"
